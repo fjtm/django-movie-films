@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Peliculas</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="{% static 'films/style.css' %}" type="text/css" media="all" />
+</head>
+<body>
+<!-- START PAGE SOURCE -->
+<div id="shell">
+  <div id="header">
+      <ul>
+        <h1 id="logo">Películas</h1>
+      </ul>
+    <div id="navigation">
+      <ul>
+        <li><a href="{% url 'films:movies_list' %}" {% if not request.GET.list_type %}class="active"{% endif %}>INICIO</a></li>
+      </ul>
+    </div>
+    <div id="sub-navigation">
+      <ul>
+		<li><a href="{% url 'films:movies_list' %}?list_type=top_movies" {% if current_list_type == 'top_movies' %}class="active"{% endif %}>TOP PELÍCULAS</a></li>
+		<li><a href="{% url 'films:movies_list' %}?list_type=full_movies" {% if current_list_type == 'full_movies' %}class="active"{% endif %}>MOSTRAR TODO</a></li>
+		<li><a href="{% url 'films:movies_list' %}?list_type=dvd_movies" {% if current_list_type == 'dvd_movies' %}class="active"{% endif %}>DVD</a></li>
+		<li><a href="{% url 'films:movies_list' %}?list_type=blue_ray_movies" {% if current_list_type == 'blue_ray_movies' %}class="active"{% endif %}>Blue-ray</a></li>
+	  </ul>
+      <div id="search">
+        <form method="get" accept-charset="utf-8" role="search", action = "{% url 'films:search_list' %}">
+          <label for="search-field">BUSCAR</label>
+          <input type="text" name="query" value="Buscar película" id="search-field" class="blink search-field"  />
+          <input type="submit" value="" class="search-button" />
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="main">
+    <div id="content">
+      <div class="box">
+        <div class="head">
+        </div>
+		<div class="detail-left">
+			<div class="detail-image">
+				<a>
+					{% if detail.url_img_front %}
+						<img src="{{ detail.url_img_front.url }}" alt="{{ detail.title }} Cover Front" />
+					{% else %}
+						<!-- Add a placeholder or default image if url_img_front is empty -->
+						<img src="{% static 'path/to/placeholder_image.jpg' %}" alt="Placeholder Image" />
+					{% endif %}
+				</a> 
+			</div>
+		</div>
+		<div class="detail-right">
+		
+			{% if detail.description %}
+				<p id=film-description">{{detail.description}}</p>
+			{% else %}
+				<p id=film-description">Descripción no disponible</p>
+			{% endif %}
+			
+			{% if detail.year %}
+				<p id=film-year">Año : {{detail.year}}</p>
+			{% else %}
+				<p id=film-year">Año :  No disponible</p>
+			{% endif %}
+			
+			{% if detail.genre %}
+				<p id=film-year">Géneros : {{detail.genre}}</p>
+			{% else %}
+				<p id=film-year">Géneros :  No disponible</p>
+			{% endif %}
+			
+			{% if detail.type_film %}
+				<p id=film-year">Formato : {{detail.type_film}}</p>
+			{% else %}
+				<p id=film-year">Formato :  No disponible</p>
+			{% endif %}
+		</div>
+		
+		
+    <div class="cl">&nbsp;</div>
+      </div>
+    </div>
+
+  <div id="footer">
+    <p class="lf">Copyright &copy; 2023 <a href="{% url 'films:movies_list' %}">Películas</a> - All Rights Reserved</p>
+    <div style="clear:both;"></div>
+  </div>
+</div>
+<!-- END PAGE SOURCE -->
+</body>
+</html>

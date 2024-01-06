@@ -1,0 +1,8 @@
+{% block content %}
+    <h1>{{ detail.title }}</h1>
+    <p>Year: {{ detail.year }}</p>
+    <p>img_back: {{ detail.img_back }}</p>
+    <p>img_front: {{ detail.img_front }}</p>
+	<img src="{{ detail.url_img_front.url }}" alt="{{ detail.title }} Cover Front" />
+    <!-- Add other movie details as needed -->
+{% endblock %}
