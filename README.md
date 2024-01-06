@@ -10,6 +10,12 @@ Welcome to the My Film Collection Django Project! This web application provides 
 
 - **Responsive Design:** Upcoming.
 
+## Example Screenshot:
+
 ## License:
+
+![Index View]([example_screenshot.png](https://github.com/fjtm/django-movie-films/blob/main/images/index_example.png)
+
+![Detail View](https://github.com/fjtm/django-movie-films/blob/main/images/detail_example.png)
 
 This project is licensed under the [MIT License](LICENSE). Feel free to customize and adapt this project to suit your film cataloging needs!
