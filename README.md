@@ -14,7 +14,7 @@ Welcome to the My Film Collection Django Project! This web application provides 
 
 ## License:
 
-![Index View]([example_screenshot.png](https://github.com/fjtm/django-movie-films/blob/main/images/index_example.png)
+![Index View](https://github.com/fjtm/django-movie-films/blob/main/images/index_example.png)
 
 ![Detail View](https://github.com/fjtm/django-movie-films/blob/main/images/detail_example.png)
 
